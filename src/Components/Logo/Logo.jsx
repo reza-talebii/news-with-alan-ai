@@ -1,17 +1,12 @@
 import React from "react";
 
+import logo from "../../assets/alan.jpg";
 import useStyle from "./styles";
 
 const Logo = () => {
   const classes = useStyle();
 
-  return (
-    <img
-      src="https://alan.app/voice/images/previews/preview.jpg"
-      className={classes.alanLogo}
-      alt="logo"
-    />
-  );
+  return <img src={logo} className={classes.alanLogo} alt="logo" />;
 };
 
 export default Logo;
