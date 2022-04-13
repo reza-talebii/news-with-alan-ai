@@ -19,10 +19,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>alan news</h1>
+    <>
       <NewsCards articles={newsArticles} />
-    </div>
+    </>
   );
 };
 

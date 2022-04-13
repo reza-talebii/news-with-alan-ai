@@ -1,5 +1,7 @@
 import React from "react";
 
+import placeholderImage from "../../assets/news-placeholder.png";
+
 import {
   Card,
   CardActions,
@@ -12,22 +14,17 @@ import {
 
 import useStyles from "./styles";
 
-const NewsCard = ({
-  article: { description, publishedAt, source, title, url, urlToImage },
-  activeArticle,
-  i,
-}) => {
+const NewsCard = ({ article, activeArticle, i }) => {
   const classes = useStyles();
+
+  const { description, publishedAt, source, title, url, urlToImage } = article;
 
   return (
     <Card className={activeArticle === i ? classes.activeCard : classes.card}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           className={classes.media}
-          image={
-            urlToImage ||
-            "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png"
-          }
+          image={urlToImage || placeholderImage}
           title={title}
         />
         <div className={classes.details}>
