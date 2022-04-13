@@ -3,17 +3,12 @@ import { Grid, Grow, Typography } from "@material-ui/core";
 
 import NewsCard from "../NewsCard/NewsCard";
 import useStyles from "./styles.js";
-
-
+import InfoCards from "../InfoCards/InfoCards";
 
 const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
 
-  if (!articles.length) {
-    return (
-     
-    );
-  }
+  if (!articles.length) return <InfoCards />;
 
   return (
     <Grow in>
