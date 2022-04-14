@@ -16,6 +16,9 @@ import useStyles from "./styles";
 
 const NewsCard = ({ article, activeArticle, i }) => {
   const classes = useStyles();
+  const { description, publishedAt, source, title, url, urlToImage } = article;
+
+  //SCROLL TOP CARD HANDLER
   const [elRefs, setElRefs] = useState([]);
   const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
 
@@ -32,8 +35,7 @@ const NewsCard = ({ article, activeArticle, i }) => {
       scrollToRef(elRefs[activeArticle]);
     }
   }, [i, activeArticle, elRefs]);
-
-  const { description, publishedAt, source, title, url, urlToImage } = article;
+  //END SCROLL TOP CARD HANDLER
 
   return (
     <Card
@@ -46,6 +48,7 @@ const NewsCard = ({ article, activeArticle, i }) => {
           image={urlToImage || placeholderImage}
           title={title}
         />
+
         <div className={classes.details}>
           <Typography variant="body2" color="textSecondary" component="h2">
             {new Date(publishedAt).toDateString()}
@@ -54,6 +57,7 @@ const NewsCard = ({ article, activeArticle, i }) => {
             {source.name}
           </Typography>
         </div>
+
         <Typography
           className={classes.title}
           gutterBottom
@@ -62,16 +66,19 @@ const NewsCard = ({ article, activeArticle, i }) => {
         >
           {title}
         </Typography>
+
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             {description}
           </Typography>
         </CardContent>
       </CardActionArea>
+
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" href={url}>
           Learn More
         </Button>
+
         <Typography variant="h5" color="textSecondary" component="h2">
           {i + 1}
         </Typography>

@@ -1,9 +1,9 @@
 import React from "react";
 
 import Logo from "../Logo/Logo";
-import InfoController from "../InfoController/InfoController";
-
 import useStyle from "./styles";
+
+import InfoController from "../InfoController/InfoController";
 
 const Header = ({ newsArticles }) => {
   const classes = useStyle();
@@ -11,7 +11,6 @@ const Header = ({ newsArticles }) => {
   return (
     <div className={classes.logoContainer}>
       {newsArticles.length ? <InfoController /> : null}
-
       <Logo />
     </div>
   );
