@@ -15,11 +15,20 @@ const App = () => {
     alanBtn({
       key: ALAN_KEY,
       onCommand: ({ command, articles }) => {
-        if (command === "newsHeadLines") {
+        //set news articles
+        if (command === "newsHeadlines") {
           setNewsArticles(articles);
           setActiveArticle(-1);
         }
+
+        //highlight card for reading
         if (command === "highlight") setActiveArticle((prev) => prev + 1);
+
+        //go back & clear
+        if (command === "goBack") {
+          setActiveArticle(-1);
+          setNewsArticles(articles);
+        }
       },
     });
   }, []);
