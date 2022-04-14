@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "50%",
+    width: "215px",
     padding: "3%",
     borderRadius: 10,
     color: "white",

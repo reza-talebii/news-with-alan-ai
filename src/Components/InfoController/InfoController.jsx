@@ -9,16 +9,12 @@ const InfoController = () => {
   return (
     <div className={classes.infoContainer}>
       <div className={classes.card}>
-        <Typography variant="h5" component="h2">
-          Try saying: <br />
-          <br />
-          Open article number [4]
+        <Typography variant="h6" component="h2">
+          Open article number[4]
         </Typography>
       </div>
       <div className={classes.card}>
-        <Typography variant="h5" component="h2">
-          Try saying: <br />
-          <br />
+        <Typography variant="h6" component="h2">
           Go back
         </Typography>
       </div>
