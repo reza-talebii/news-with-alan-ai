@@ -11,6 +11,7 @@ const ALAN_KEY =
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [activeArticle, setActiveArticle] = useState(-1);
+  const [error, setError] = useState(false);
 
   //HANDLING ALAN
   useEffect(() => {
@@ -55,6 +56,13 @@ const App = () => {
           default:
             break;
         }
+      },
+      onConnectionStatus: (status) => {
+        if (status === "disconnected") setError(true);
+        // console.log("Status", status);
+      },
+      onButtonState: (event) => {
+        console.log(event);
       },
     });
   }, []);
