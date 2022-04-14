@@ -1,11 +1,14 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+import useStyles from "./styles";
 
 export default function LinearIndeterminate() {
+  const classes = useStyles();
+
   return (
-    <Box sx={{ width: "100%" }}>
+    <div className={classes.root}>
       <LinearProgress />
-    </Box>
+    </div>
   );
 }

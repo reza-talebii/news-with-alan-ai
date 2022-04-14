@@ -61,10 +61,11 @@ const App = () => {
       },
       onConnectionStatus: (status) => {
         if (status === "disconnected") setError(true);
-        // console.log("Status", status);
+        if (status === "authorized") setError(false);
       },
       onButtonState: (event) => {
-        console.log(event);
+        if (event === "CONNECTING") setLoading(true);
+        if (event === "ONLINE") setLoading(false);
       },
     });
   }, []);
