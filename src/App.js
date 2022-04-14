@@ -29,12 +29,6 @@ const App = () => {
 
             break;
 
-          //go back & clear articles
-          case "goBack":
-            setNewsArticles(articles);
-            setActiveArticle(-1);
-            break;
-
           //opening article by index
           case "openArticle":
             //convert number to string four => 4
@@ -43,9 +37,18 @@ const App = () => {
                 ? wordsToNumbers(number, { fuzzy: true })
                 : number;
 
-            const article = articles[parsedNumber - 1];
-            //open article in new tab
-            window.open(article.url, "_blank");
+            if (parsedNumber > 20) {
+              try {
+                alanBtn().playText("News not exist Please try again");
+              } catch {
+                alert("News not exist Please try again");
+              }
+              return;
+            } else {
+              const article = articles[parsedNumber - 1];
+              window.open(article.url, "_blank");
+            }
+
             break;
 
           default:
