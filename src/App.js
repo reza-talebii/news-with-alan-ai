@@ -12,51 +12,50 @@ const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [activeArticle, setActiveArticle] = useState(-1);
 
-  //HANDLING COMMAND FROM ALAN
-  const commandHandler = ({ command, articles, number }) => {
-    switch (command) {
-      //set new articles
-      case "newsHeadlines":
-        setNewsArticles(articles);
-        setActiveArticle(-1);
-        break;
-
-      //highlight card for reading
-      case "highlight":
-        setActiveArticle((prev) => prev + 1);
-
-        break;
-
-      //opening article by index
-      case "openArticle":
-        //convert number to string four => 4
-        const parsedNumber =
-          number.length > 2 ? wordsToNumbers(number, { fuzzy: true }) : number;
-
-        if (parsedNumber > 20) {
-          try {
-            alanBtn().playText("News not exist Please try again");
-          } catch {
-            alert("News not exist Please try again");
-          }
-          return;
-        } else {
-          const article = articles[parsedNumber - 1];
-          window.open(article.url, "_blank");
-        }
-
-        break;
-
-      default:
-        break;
-    }
-  };
-
+  //HANDLING ALAN
   useEffect(() => {
     alanBtn({
       key: ALAN_KEY,
-      onCommand: ({ command, articles, number }) =>
-        commandHandler(command, articles, number),
+      onCommand: ({ command, articles, number }) => {
+        switch (command) {
+          //set new articles
+          case "newsHeadlines":
+            setNewsArticles(articles);
+            setActiveArticle(-1);
+            break;
+
+          //highlight card for reading
+          case "highlight":
+            setActiveArticle((prev) => prev + 1);
+
+            break;
+
+          //opening article by index
+          case "openArticle":
+            //convert number to string four => 4
+            const parsedNumber =
+              number.length > 2
+                ? wordsToNumbers(number, { fuzzy: true })
+                : number;
+
+            if (parsedNumber > 20) {
+              try {
+                alanBtn().playText("News not exist Please try again");
+              } catch {
+                alert("News not exist Please try again");
+              }
+              return;
+            } else {
+              const article = articles[parsedNumber - 1];
+              window.open(article.url, "_blank");
+            }
+
+            break;
+
+          default:
+            break;
+        }
+      },
     });
   }, []);
 
