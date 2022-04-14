@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
+import wordsToNumbers from "words-to-numbers";
 
 import NewsCards from "./Components/NewsCards/NewsCards";
 import Header from "./Components/Header/Header";
@@ -36,7 +37,15 @@ const App = () => {
 
           //opening article by index
           case "openArticle":
-            // console.log(numbee);
+            //convert number to string four => 4
+            const parsedNumber =
+              number.length > 2
+                ? wordsToNumbers(number, { fuzzy: true })
+                : number;
+
+            const article = articles[parsedNumber - 1];
+            //open article in new tab
+            window.open(article.url, "_blank");
             break;
 
           default:
