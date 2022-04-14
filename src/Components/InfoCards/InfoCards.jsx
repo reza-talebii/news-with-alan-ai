@@ -37,8 +37,16 @@ const InfoCards = () => {
         alignItems="stretch"
         spacing={3}
       >
-        {infoCards.map((infoCard) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} className={classes.infoCard}>
+        {infoCards.map((infoCard, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            className={classes.infoCard}
+            key={index}
+          >
             <div
               className={classes.card}
               style={{ backgroundColor: infoCard.color }}
