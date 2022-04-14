@@ -14,20 +14,33 @@ const App = () => {
   useEffect(() => {
     alanBtn({
       key: ALAN_KEY,
-      onCommand: ({ command, articles }) => {
-        //set news articles
-        if (command === "newsHeadlines") {
-          setNewsArticles(articles);
-          setActiveArticle(-1);
-        }
+      onCommand: ({ command, articles, number }) => {
+        switch (command) {
+          //set new articles
+          case "newsHeadlines":
+            setNewsArticles(articles);
+            setActiveArticle(-1);
+            break;
 
-        //highlight card for reading
-        if (command === "highlight") setActiveArticle((prev) => prev + 1);
+          //highlight card for reading
+          case "highlight":
+            setActiveArticle((prev) => prev + 1);
 
-        //go back & clear
-        if (command === "goBack") {
-          setActiveArticle(-1);
-          setNewsArticles(articles);
+            break;
+
+          //go back & clear articles
+          case "goBack":
+            setNewsArticles(articles);
+            setActiveArticle(-1);
+            break;
+
+          //opening article by index
+          case "openArticle":
+            // console.log(numbee);
+            break;
+
+          default:
+            break;
         }
       },
     });
