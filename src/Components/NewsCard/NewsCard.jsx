@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import placeholderImage from "../../assets/news-placeholder.png";
 
@@ -16,11 +16,30 @@ import useStyles from "./styles";
 
 const NewsCard = ({ article, activeArticle, i }) => {
   const classes = useStyles();
+  const [elRefs, setElRefs] = useState([]);
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+
+  useEffect(() => {
+    setElRefs((refs) =>
+      Array(20)
+        .fill()
+        .map((_, j) => refs[j] || React.createRef())
+    );
+  }, []);
+
+  useEffect(() => {
+    if (activeArticle === i && elRefs[activeArticle]) {
+      scrollToRef(elRefs[activeArticle]);
+    }
+  }, [i, activeArticle, elRefs]);
 
   const { description, publishedAt, source, title, url, urlToImage } = article;
 
   return (
-    <Card className={activeArticle === i ? classes.activeCard : classes.card}>
+    <Card
+      ref={elRefs[i]}
+      className={activeArticle === i ? classes.activeCard : classes.card}
+    >
       <CardActionArea href={url} target="_blank">
         <CardMedia
           className={classes.media}
