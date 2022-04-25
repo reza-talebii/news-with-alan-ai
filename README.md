@@ -1,27 +1,39 @@
-# Voice Controlled React News Application - Alan AI Voice Assistant
+## سایت خبری با دستیار صوتی alan
+> یک پروژه فول ریسپانسیو توسعه داده شده باVoice Assistant alan ai, material-ui , react
+> دمو سایت [_اینجا_](https://news-with-alan-aii.netlify.app/).
 
-### [Live Site](https://news-with-alan-aii.netlify.app/)
+## اسکرین شات
 
-![Voice Controlled React News Application](https://i.ibb.co/SVyK6Nh/Screenshot-2020-08-03-at-21-24-23.png)
-
-## Introduction
-
--Search using Voice Assistant
-
--Read news headlines
-
--Change direction
-
--Search resources
-
--Search categories
-
--Search term
-
--Search the latest news
+![اسکرین شات](https://i.ibb.co/SVyK6Nh/Screenshot-2020-08-03-at-21-24-23.png)
 
 
 
-Setup:
+## اطلاعات کلی
 
-- run `npm i && npm start` to start development server
+- دستیار صوتی alan برای سرچ عناوین و منابع ودسته های خبری 
+- خواندن عنوان های خبری توسط دستیار صوتی
+- باز کردن اخبار با  دستیار صوتی
+- کنترل کننده سایت با دستیار صوتی
+- طراحی سایت با استفاده از  material-ui
+  
+
+
+
+## تکنولوژی های استفاده شده
+
+- react - ورژن 18.0
+- material-ui- ورژن 5.6
+- alan-ai  1.8 ورژن
+
+
+## چالش ها
+
+-  یادگیری  material-ui 
+- یادگیری کار با alan-ai 
+-ارور و لودینگ handling
+
+
+
+
+## وضعیت پروژه
+تمام شده
